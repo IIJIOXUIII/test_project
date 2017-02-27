@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+		<title>Тестовое задание</title>
+		<!-- Bootstrap -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	</head>
+  	<body onload="startTimer()">
+  		<script type="text/javascript">
+		  function startTimer() {
+		    var my_timer = document.getElementById("my_timer");
+		    var time = my_timer.innerHTML;
+		    var arr = time.split(":");
+		    var h = arr[0];
+		    var m = arr[1];
+		    var s = arr[2];
+		    s++;
+		    if (s > 59) {
+		    	s = 0;
+		    	m++;
+		    	if (m < 10) {
+		    		m = '0' + m;
+		    	}
+		    	if (m > 59) {
+		    		m = 0;
+		    		h++;
+		    		if (h < 10) {
+		    			h = '0' + h;
+		    		}
+		    	}
+		    } else
+		    if (s < 10) {
+		    	s = '0' + s;
+		    }
+		    setTimeout(startTimer, 1000);
+		    document.getElementById("my_timer").innerHTML = h+":"+m+":"+s;
+		  }
+		</script>
+
+  		<div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6 vcenter">
+					<div>
+						<nav class="navbar navbar-inverse" id="tabs"> 
+							<div class="container-fluid">
+								<div class="navbar-header">
+									<a data-toggle="tab" class="navbar-brand" href="#Resume">Резюме</a></li>
+									<a data-toggle="tab" class="navbar-brand" href="#Map">Карта</a></li>
+									<a data-toggle="tab" class="navbar-brand" href="#Timer">Таймер</a></li>
+								</div>
+							</div>
+						</nav>
+
+						<div class="tab-content">
+							<div id="Resume" class="tab-pane" >
+								<p>Я 1-я секция.</p>
+							</div>
+							<div id="Map" class="tab-pane">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d919.8411050008964!2d37.20055301948713!3d56.74703264652026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1487883461554" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+							<div id="Timer" class="tab-pane active">
+								<p><span id="my_timer" style="color: #f00; font-size: 150%; font-weight: bold;">00:00:00</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  	</body>
+</html>

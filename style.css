@@ -1,0 +1,10 @@
+body {
+    font-size: 52px;
+    font-family: Monaco, Courier, monospace;
+}
+
+.vcenter {
+  display: inline-block;
+  float: none;
+  vertical-align: left;
+}
